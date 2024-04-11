@@ -1,22 +1,20 @@
-# LT Challenge Solution
+# LT Challenge, Solucion
 
-For challenge description go to: https://github.com/rtakeshi/latam-challenge/blob/main/latam-challenge.md
+Para obtener una descripción del desafío, visite: https://github.com/rtakeshi/latam-challenge/blob/main/latam-challenge.md
 
-## Objectives
+## Objetivos
 
-1. The primary goal of this case solution is to explore memory usage and optimization within a distributed and scalable data processing environment like Spark.
-2. Exploring scalable cloud solutions such as Cloud Storage, Cloud Build, and Cloud Run in GCP.
-3. Implement an reproductible environment using Docker ready to execute Jupyter and PySpark
-4. Implement an automated Cloud Build CI for my Docker image to GCP Artifact Registry.
-5. Establishing and adhering to a Git flow to establish an efficient workflow for organizing features, builds, and testing tasks.
-6. Implementing Test-Driven Development (TDD) to address the challenge questions.
-7. Implementing data transformations to define data quality layers.
-8. Exploring analytical data transformation techniques to tackle the challenge questions.
+1. El objetivo principal de la solución de este caso es explorar el uso y la optimización de la memoria dentro de un entorno de procesamiento de datos distribuido y escalable como Spark.
+2. Explorar soluciones de nube escalables como Cloud Storage, Cloud Build y Cloud Run en GCP.
+3. Implementar un entorno reproducible usando Docker listo para ejecutar Jupyter y PySpark
+4. Implementar un CI de Cloud Build automatizado para mi imagen de Docker en GCP Artifact Registry.
+5. Establecer y adherirse a un flujo de Git para establecer un flujo de trabajo eficiente para organizar funciones, compilaciones y tareas de prueba.
+6. Implementar el desarrollo basado en pruebas (TDD) para abordar las preguntas desafiantes.
+7. Implementar transformaciones de datos para definir capas de calidad de datos.
+8. Explorar técnicas analíticas de transformación de datos para abordar las preguntas desafiantes.
 
-As a bonus, I will also explore Infra as Code concepts to create a Google Cloud Storage (GCS) to store my test and staging datasets.
-
-## Importantly
-the data file farmers-protest-tweets-2021-2-4.json was included in the data/raw folder but was compressed, since it made no sense to upload it uncompressed where it weighed more than 10 times as much. It is important to unzip this file in that same folder before executing the code.
+## IMPORTANTE
+El archivo de datos Farmers-protest-tweets-2021-2-4.json esta incluido en la carpeta data/raw pero estaba comprimido, no tenía sentido subirlo sin comprimir donde pesaba más de 10 veces más. Es importante descomprimir este archivo en esa misma carpeta antes de ejecutar el código.
 
 # ejercicio 1 --> q1_memory.py
 
@@ -59,4 +57,3 @@ El script imprimirá los resultados en la consola, mostrando las fechas con más
 
 ### Notas adicionales
 Los resultados del análisis de uso de memoria se mostrarán en la consola si memory_profiler está activo.
-
