@@ -13,6 +13,9 @@ Para obtener una descripción del desafío, visite: https://github.com/rtakeshi/
 7. Implementar transformaciones de datos para definir capas de calidad de datos.
 8. Explorar técnicas analíticas de transformación de datos para abordar las preguntas desafiantes.
 
+## ACLARACION
+Como se pidio tanto README.MD como un archivo .jpynb decidi hacer el README.MD en español y el challenge.jpynb en ingles. 
+
 ## IMPORTANTE
 El archivo de datos Farmers-protest-tweets-2021-2-4.json esta incluido en la carpeta data/raw pero estaba comprimido, no tenía sentido subirlo sin comprimir donde pesaba más de 10 veces más. Es importante descomprimir este archivo en esa misma carpeta antes de ejecutar el código.
 
@@ -44,7 +47,6 @@ pip install pyspark memory_profiler
 El archivo ```farmers-protest-tweets-2021-2-4.json``` de datos esta en la carpeta data/raw, comprimido en un .rar es necesario descomprimirlo antes de ejecutar el codigo.
 
 ### Ejecutar el script:
-Guarda el código en un archivo, por ejemplo, analyze_tweets.py.
 Ejecuta el script desde la línea de comandos, pasando la ruta del archivo JSON como argumento:
 bash
 Copy code
@@ -57,3 +59,28 @@ El script imprimirá los resultados en la consola, mostrando las fechas con más
 
 ### Notas adicionales
 Los resultados del análisis de uso de memoria se mostrarán en la consola si memory_profiler está activo.
+
+# ejercicio 2 --> q1_time.py
+
+## Descripción
+El script realiza las siguientes operaciones:
+
+1. Inicializa una sesión de Spark y lee los datos del archivo especificado.
+2. Persiste el DataFrame en memoria y disco para optimizar el rendimiento.
+3. Agrupa los datos por fecha de creación y cuenta los posts para cada fecha.
+4. Filtra las 10 fechas con más publicaciones y obtiene los usuarios más activos en esas fechas.
+5. Utilizamos una función de ventana para ordenar los usuarios por su actividad y selecciona el más activo para cada fecha.
+
+## Cómo ejecutar el script
+Para ejecutar este script, necesitarás tener Python y Spark instalados en tu sistema. Aquí te dejo una guía paso a paso:
+
+### Preparar el archivo de datos:
+El archivo ```farmers-protest-tweets-2021-2-4.json``` de datos esta en la carpeta data/raw, comprimido en un .rar es necesario descomprimirlo antes de ejecutar el codigo. (Este paso es comun para todos los ejercicios pero lo vamos a comentar en cada caso, por si se quiere solo ejecutar un caso aislado.)
+
+### Ejecutar el script:
+Ejecuta el script desde la línea de comandos, pasando la ruta del archivo JSON como argumento:
+bash
+Copy code
+```bash 
+python q1_time.py /data/raw/farmers-protest-tweets-2021-2-4.json
+```
