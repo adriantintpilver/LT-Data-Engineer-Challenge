@@ -109,7 +109,7 @@ El script imprimirá los resultados en la consola, mostrando las 10 fechas con m
 ## Enfoque de la opcion
 
 El enfoque es similar en cada ejercicio entre eficiencia de tiempos y memoria.
-Utilice en esta opcion un codigo mas conciso y un poco mas legible, tratando de mantener la menor candidad de codigo y estructuras, no utilizo ```persist()``` para utillizar menos memoria. Pero al persistir datos hay un aumento en el tiempo de procesamiento, especialmente si se accede a los mismos datos varias veces.
+En este enfoque, empleo un código más compacto y fácil de entender, procurando reducir al mínimo la cantidad de código y estructuras. Evito el uso de la función ```persist()``` para conservar memoria. Sin embargo, al persistir los datos, se observa un incremento en el tiempo de procesamiento.
 
 ## Descripción
 El script realiza las siguientes operaciones:
@@ -152,9 +152,9 @@ Los resultados del análisis de uso de memoria se mostrarán en la consola si me
 ## Enfoque de la opcion
 
 El enfoque es similar en cada ejercicio entre eficiencia de tiempos y memoria.
-Utiliza persist(StorageLevel.MEMORY_AND_DISK) ```persist()``` para mantener los datos en memoria y en disco si es necesario, lo cual acelera el acceso a los datos repetidos.
-Defino explícitamente un esquema de datos (CUSTOM_SCHEMA), para mejorar la eficiencia del procesamiento al evitar inferencia de tipos
-Esta opcion es mas rapida, pero consume mas memoria que la anterior y el codigo es un poco mas largo y puede dificultar el mantenimiento.
+Utiliza la función ```persist()``` con el parámetro StorageLevel.MEMORY_AND_DISK para conservar los datos tanto en la memoria como en el disco si es necesario. Esto optimiza el acceso a los datos que se utilizan con frecuencia.
+Establezco un esquema de datos personalizado (CUSTOM_SCHEMA) de manera explícita para mejorar la eficacia del procesamiento al evitar la necesidad de inferir tipos de datos.
+Aunque esta opción ofrece mayor velocidad, requiere una cantidad mayor de memoria que la alternativa anterior y el código resultante puede ser un poco más extenso, lo que podría complicar el mantenimiento.
 
 ## Descripción
 El script realiza las siguientes operaciones:
