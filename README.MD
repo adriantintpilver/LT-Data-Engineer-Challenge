@@ -38,17 +38,17 @@ Para ejecutar este script, necesitarás tener Python y Spark instalados en tu si
 Asegúrate de tener Python y Apache Spark instalados.
 Instala pyspark y memory_profiler usando pip, si aún no están instalados:
 Copy code
-´´pip install pyspark memory_profiler´´
+```pip install pyspark memory_profiler```
 
 ### Preparar el archivo de datos:
-El archivo ´´farmers-protest-tweets-2021-2-4.json´´ de datos esta en la carpeta data/raw, comprimido en un .rar es necesario descomprimirlo antes de ejecutar el codigo.
+El archivo ```farmers-protest-tweets-2021-2-4.json``` de datos esta en la carpeta data/raw, comprimido en un .rar es necesario descomprimirlo antes de ejecutar el codigo.
 
 ### Ejecutar el script:
 Guarda el código en un archivo, por ejemplo, analyze_tweets.py.
 Ejecuta el script desde la línea de comandos, pasando la ruta del archivo JSON como argumento:
 bash
 Copy code
-´´python q1_memory.py /data/raw/farmers-protest-tweets-2021-2-4.json´´
+```python q1_memory.py /data/raw/farmers-protest-tweets-2021-2-4.json```
 
 ### Revisar los resultados:
 El script imprimirá los resultados en la consola, mostrando las fechas con más mensajes y el usuario más activo en esas fechas.
