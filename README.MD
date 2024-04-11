@@ -33,14 +33,14 @@ El script realiza las siguientes operaciones:
 4. Resultados: El script devuelve una lista de tuplas, cada una conteniendo una fecha y el nombre del usuario más activo en esa fecha.
 
 ## Cómo ejecutar el script
-Para ejecutar este script, necesitarás tener Python y Spark instalados en tu sistema. Aquí te dejo una guía paso a paso:
+Para ejecutar este script, necesitarás tener Python y Spark instalados en tu sistema. Aquí dejo una guía paso a paso:
 
 ### Instalar dependencias:
 Asegúrate de tener Python y Apache Spark instalados.
-Instala pyspark y memory_profiler usando pip, si aún no están instalados:
+Instala dependecias, si aún no están instalados:
 Copy code
 ```bash 
-pip install pyspark memory_profiler
+pip install requirements.txt
 ```
 
 ### Preparar el archivo de datos:
@@ -72,8 +72,15 @@ El script realiza las siguientes operaciones:
 5. Utilizamos una función de ventana para ordenar los usuarios por su actividad y selecciona el más activo para cada fecha.
 
 ## Cómo ejecutar el script
-Para ejecutar este script, necesitarás tener Python y Spark instalados en tu sistema. Aquí te dejo una guía paso a paso:
+Para ejecutar este script, necesitarás tener Python y Spark instalados en tu sistema. Aquí dejo una guía paso a paso:
 
+### Instalar dependencias:
+Asegúrate de tener Python y Apache Spark instalados.
+Instala dependecias, si aún no están instalados:
+Copy code
+```bash 
+pip install requirements.txt
+```
 ### Preparar el archivo de datos:
 El archivo ```farmers-protest-tweets-2021-2-4.json``` de datos esta en la carpeta data/raw, comprimido en un .rar es necesario descomprimirlo antes de ejecutar el codigo. (Este paso es comun para todos los ejercicios pero lo vamos a comentar en cada caso, por si se quiere solo ejecutar un caso aislado.)
 
@@ -84,3 +91,43 @@ Copy code
 ```bash 
 python q1_time.py /data/raw/farmers-protest-tweets-2021-2-4.json
 ```
+### Revisar los resultados:
+El script imprimirá los resultados en la consola, mostrando las 10 fechas con más publicaciones y obtiene los usuarios más activos en esas fechas.
+
+# ejercicio 3 --> q2_memory.py
+
+## Descripción
+El script realiza las siguientes operaciones:
+
+1. Inicializa una sesión de Spark y lee datos de tweets del archivo JSON.
+2. Extrae emojis del contenido del tweet utilizando una función definida por el usuario (UDF).
+3. Cuenta las apariciones de cada emoji.
+4. Ordena los emojis por frecuencia, con orden alfabético para desempates.
+5. Devuelve los 10 emojis más utilizados junto con sus recuentos.
+
+## Cómo ejecutar el script
+Para ejecutar este script, necesitarás tener Python y Spark instalados en tu sistema. Aquí dejo una guía paso a paso:
+
+### Instalar dependencias:
+Asegúrate de tener Python y Apache Spark instalados.
+Instala dependecias, si aún no están instalados:
+Copy code
+```bash 
+pip install requirements.txt
+```
+
+### Preparar el archivo de datos:
+El archivo ```farmers-protest-tweets-2021-2-4.json``` de datos esta en la carpeta data/raw, comprimido en un .rar es necesario descomprimirlo antes de ejecutar el codigo. (Este paso es comun para todos los ejercicios pero lo vamos a comentar en cada caso, por si se quiere solo ejecutar un caso aislado.)
+
+### Ejecutar el script:
+Ejecuta el script desde la línea de comandos, pasando la ruta del archivo JSON como argumento:
+bash
+Copy code
+```bash 
+python q2_memory.py /data/raw/farmers-protest-tweets-2021-2-4.json
+```
+### Revisar los resultados:
+El script imprimirá los resultados en la consola, mostrando 10 emojis más utilizados junto con sus recuentos.
+
+### Notas adicionales
+Los resultados del análisis de uso de memoria se mostrarán en la consola si memory_profiler está activo.

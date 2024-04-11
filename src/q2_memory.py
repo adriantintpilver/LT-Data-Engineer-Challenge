@@ -2,6 +2,7 @@ from typing import List, Tuple
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import udf, col, explode, count
 from pyspark.sql.types import DateType, StringType, StructField, StructType, ArrayType
+from memory_profiler import profile
 import emoji
 
 # Custom schema for staging data
