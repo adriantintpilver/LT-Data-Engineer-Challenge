@@ -19,7 +19,7 @@ Como se pidio tanto README.MD como un archivo .jpynb decidi hacer el README.MD e
 ## IMPORTANTE
 El archivo de datos Farmers-protest-tweets-2021-2-4.json esta incluido en la carpeta data/raw pero estaba comprimido, no tenía sentido subirlo sin comprimir donde pesaba más de 10 veces más. Es importante descomprimir este archivo en esa misma carpeta antes de ejecutar el código.
 
-# ejercicio 1 --> q1_memory.py
+# Ejercicio 1 --> q1_memory.py
 
 ## Enfoque de la opcion
 
@@ -64,7 +64,7 @@ El script imprimirá los resultados en la consola, mostrando las fechas con más
 ### Notas adicionales
 Los resultados del análisis de uso de memoria se mostrarán en la consola si memory_profiler está activo.
 
-# ejercicio 2 --> q1_time.py
+# Ejercicio 2 --> q1_time.py
 
 ## Enfoque de la opcion
 
@@ -104,7 +104,7 @@ python q1_time.py /data/raw/farmers-protest-tweets-2021-2-4.json
 ### Revisar los resultados:
 El script imprimirá los resultados en la consola, mostrando las 10 fechas con más publicaciones y obtiene los usuarios más activos en esas fechas.
 
-# ejercicio 3 --> q2_memory.py
+# Ejercicio 3 --> q2_memory.py
 
 ## Enfoque de la opcion
 
@@ -147,7 +147,7 @@ El script imprimirá los resultados en la consola, mostrando 10 emojis más util
 ### Notas adicionales
 Los resultados del análisis de uso de memoria se mostrarán en la consola si memory_profiler está activo.
 
-# ejercicio 4 --> q2_time.py
+# Ejercicio 4 --> q2_time.py
 
 ## Enfoque de la opcion
 
@@ -188,3 +188,46 @@ python q2_time.py /data/raw/farmers-protest-tweets-2021-2-4.json
 ```
 ### Revisar los resultados:
 El script imprimirá los resultados en la consola, mostrando 10 emojis más utilizados junto con sus recuentos.
+
+# Ejercicio 5 --> q3_memory.py
+
+## Enfoque de la opcion
+
+El enfoque es similar en cada ejercicio entre eficiencia de tiempos y memoria.
+En este enfoque, empleo un código más compacto y fácil de entender, procurando reducir al mínimo la cantidad de código y estructuras. Evito el uso de la función ```persist()``` para conservar memoria. Sin embargo, al persistir los datos, se observa un incremento en el tiempo de procesamiento.
+
+## Descripción
+El script realiza las siguientes operaciones:
+
+1. Inicializa una sesión de Spark y lee datos de tweets del archivo JSON.
+2. Se utilizan expresiones regulares para extraer menciones del texto de las publicaciones.
+3. Se eliminan las menciones vacías.
+4. Se agrupan las menciones por publicación y se cuentan las ocurrencias.
+5. Se ordenan las menciones por su frecuencia y se seleccionan las 10 más frecuentes.
+
+## Cómo ejecutar el script
+Para ejecutar este script, necesitarás tener Python y Spark instalados en tu sistema. Aquí dejo una guía paso a paso:
+
+### Instalar dependencias:
+Asegúrate de tener Python y Apache Spark instalados.
+Instala dependecias, si aún no están instalados:
+Copy code
+```bash 
+pip install requirements.txt
+```
+
+### Preparar el archivo de datos:
+El archivo ```farmers-protest-tweets-2021-2-4.json``` de datos esta en la carpeta data/raw, comprimido en un .rar es necesario descomprimirlo antes de ejecutar el codigo. (Este paso es comun para todos los ejercicios pero lo vamos a comentar en cada caso, por si se quiere solo ejecutar un caso aislado.)
+
+### Ejecutar el script:
+Ejecuta el script desde la línea de comandos, pasando la ruta del archivo JSON como argumento:
+bash
+Copy code
+```bash 
+python q3_memory.py /data/raw/farmers-protest-tweets-2021-2-4.json
+```
+### Revisar los resultados:
+El script imprimirá los resultados en la consola, mostrando las menciones por su frecuencia y se seleccionan las 10 más frecuentes.
+
+### Notas adicionales
+Los resultados del análisis de uso de memoria se mostrarán en la consola si memory_profiler está activo.
