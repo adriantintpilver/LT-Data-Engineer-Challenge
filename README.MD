@@ -13,8 +13,9 @@ Para obtener una descripción del desafío, visite: https://github.com/rtakeshi/
 7. Implementar transformaciones de datos para definir capas de calidad de datos.
 8. Explorar técnicas analíticas de transformación de datos para abordar las preguntas desafiantes.
 
-## ACLARACION
+## ACLARACIONES
 Como se pidio tanto README.MD como un archivo .jpynb decidi hacer el README.MD en español y el challenge.jpynb en ingles. 
+Dedique al ejercicio el tiempo que pude dentro de dias laborales, claramente hay mejoras para hacer y las voy a escribir pero llevaban mas tiempo del que puedo dedicar a un challenge.
 
 ## IMPORTANTE
 El archivo de datos Farmers-protest-tweets-2021-2-4.json esta incluido en la carpeta data/raw pero estaba comprimido, no tenía sentido subirlo sin comprimir donde pesaba más de 10 veces más. Es importante descomprimir este archivo en esa misma carpeta antes de ejecutar el código.
@@ -273,3 +274,9 @@ python q3_time.py /data/raw/farmers-protest-tweets-2021-2-4.json
 ```
 ### Revisar los resultados:
 El script imprimirá los resultados en la consola, mostrando las menciones por su frecuencia y se seleccionan las 10 más frecuentes.
+
+## POSIBLES MEJORAS FUTURAS
+1. Dockerizar la solucion para que sea mas portable y escalable.
+2. Crear una canalizacion de integracion continua CI/CD en GCP o el servicio de nube donde queramos desplegarlo.
+3. Crear test unitarios para cada uno de los calculos que van a ayudar a la calidad de los deploys a PRD cuando se hagan cambios.
+4. Subir esta solucion a algun servicio en la nube como dataproc en GCP o similares en la nube que se decida usar.
