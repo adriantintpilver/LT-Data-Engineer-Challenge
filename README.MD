@@ -13,8 +13,9 @@ Para obtener una descripción del desafío, visite: https://github.com/rtakeshi/
 7. Implementar transformaciones de datos para definir capas de calidad de datos.
 8. Explorar técnicas analíticas de transformación de datos para abordar las preguntas desafiantes.
 
-## ACLARACION
+## ACLARACIONES
 Como se pidio tanto README.MD como un archivo .jpynb decidi hacer el README.MD en español y el challenge.jpynb en ingles. 
+Dedique al ejercicio el tiempo que pude dentro de dias laborales, claramente hay mejoras para hacer y las voy a escribir pero llevaban mas tiempo del que puedo dedicar a un challenge.
 
 ## IMPORTANTE
 El archivo de datos Farmers-protest-tweets-2021-2-4.json esta incluido en la carpeta data/raw pero estaba comprimido, no tenía sentido subirlo sin comprimir donde pesaba más de 10 veces más. Es importante descomprimir este archivo en esa misma carpeta antes de ejecutar el código.
@@ -194,7 +195,8 @@ El script imprimirá los resultados en la consola, mostrando 10 emojis más util
 ## Enfoque de la opcion
 
 El enfoque es similar en cada ejercicio entre eficiencia de tiempos y memoria.
-En este enfoque, empleo un código más compacto y fácil de entender, procurando reducir al mínimo la cantidad de código y estructuras. Evito el uso de la función ```persist()``` para conservar memoria. Sin embargo, al persistir los datos, se observa un incremento en el tiempo de procesamiento.
+No utilizo la persistencia de datos, lo que simplifica la gestión de memoria y el ciclo de vida de los recursos, evitando la necesidad de preocuparse por liberar explícitamente la memoria o el disco.
+Como en los casos anteriores este enfoque es mas economico ya que utiliza menos recursos, pero esto se traduce en tiempo de procesamiento.
 
 ## Descripción
 El script realiza las siguientes operaciones:
@@ -231,3 +233,50 @@ El script imprimirá los resultados en la consola, mostrando las menciones por s
 
 ### Notas adicionales
 Los resultados del análisis de uso de memoria se mostrarán en la consola si memory_profiler está activo.
+
+# Ejercicio 6 --> q3_time.py
+
+## Enfoque de la opcion
+El enfoque es similar en cada ejercicio entre eficiencia de tiempos y memoria.
+Utiliza el método persist() con el nivel MEMORY_AND_DISK. Esto ayuda a mejorar el rendimiento en operaciones repetidas sobre el DataFrame df, porque almacena los datos intermedios en la memoria y en el disco.
+Al persistir los datos, el script está optimizado para escenarios donde la lectura y procesamiento del DataFrame se hace múltiples veces, lo que es útil en entornos de producción o análisis repetitivo como puede ser este caso.
+El uso de persistencia incrementa el consumo de memoria y de espacio en disco, lo cual podría no ser ideal en entornos con recursos limitados.
+
+## Descripción
+El script realiza las siguientes operaciones:
+
+1. Inicializa una sesión de Spark y lee datos de tweets del archivo JSON.
+2. Se utilizan expresiones regulares para extraer menciones del texto de las publicaciones.
+3. Se eliminan las menciones vacías.
+4. Se agrupan las menciones por publicación y se cuentan las ocurrencias.
+5. Se ordenan las menciones por su frecuencia y se seleccionan las 10 más frecuentes.
+
+## Cómo ejecutar el script
+Para ejecutar este script, necesitarás tener Python y Spark instalados en tu sistema. Aquí dejo una guía paso a paso:
+
+### Instalar dependencias:
+Asegúrate de tener Python y Apache Spark instalados.
+Instala dependecias, si aún no están instalados:
+Copy code
+```bash 
+pip install requirements.txt
+```
+
+### Preparar el archivo de datos:
+El archivo ```farmers-protest-tweets-2021-2-4.json``` de datos esta en la carpeta data/raw, comprimido en un .rar es necesario descomprimirlo antes de ejecutar el codigo. (Este paso es comun para todos los ejercicios pero lo vamos a comentar en cada caso, por si se quiere solo ejecutar un caso aislado.)
+
+### Ejecutar el script:
+Ejecuta el script desde la línea de comandos, pasando la ruta del archivo JSON como argumento:
+bash
+Copy code
+```bash 
+python q3_time.py /data/raw/farmers-protest-tweets-2021-2-4.json
+```
+### Revisar los resultados:
+El script imprimirá los resultados en la consola, mostrando las menciones por su frecuencia y se seleccionan las 10 más frecuentes.
+
+## POSIBLES MEJORAS FUTURAS
+1. Dockerizar la solucion para que sea mas portable y escalable.
+2. Crear una canalizacion de integracion continua CI/CD en GCP o el servicio de nube donde queramos desplegarlo.
+3. Crear test unitarios para cada uno de los calculos que van a ayudar a la calidad de los deploys a PRD cuando se hagan cambios.
+4. Subir esta solucion a algun servicio en la nube como dataproc en GCP o similares en la nube que se decida usar.
